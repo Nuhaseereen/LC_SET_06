@@ -1,0 +1,22 @@
+int* sortedSquares(int* nums, int numsSize, int* returnSize) {
+    int i=0;
+    *returnSize=numsSize;
+    int*a=(int*)malloc(numsSize*(sizeof(int)));
+    for(i=0;i<numsSize;i++){
+      nums[i]*=nums[i];
+    }
+    int j,k;
+    for(i=0;i<numsSize-1;i++){
+      for(j=i+1;j<numsSize;j++){
+        if(nums[i]>nums[j]){
+            k=nums[i];
+            nums[i]=nums[j];
+             nums[j]=k;
+        }
+      }
+    }
+    for(i=0;i<numsSize;i++){
+        a[i]=nums[i];
+    }
+return a;
+}
